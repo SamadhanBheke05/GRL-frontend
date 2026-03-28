@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #0B3C5D;
+    --color-primary-dark: #082d47;
+    --color-accent: #F97316;
+    --color-surface: #F5F5F5;
+    --font-sans: 'Inter', sans-serif;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    padding-bottom: 70px;
+}
+
+@media (min-width: 640px) {
+    body { padding-bottom: 0; }
+}
+
+/* Honeypot field - always hidden */
+.hidden-honeypot {
+    display: none !important;
+    opacity: 0;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+/* Smooth nav transition */
+#site-header { transition: box-shadow 0.3s ease; }
+#site-header.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.18); }
+
+/* Card hover lift */
+.card-lift { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.card-lift:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.10); }
+
+/* Section label style */
+.section-label {
+    display: inline-block;
+    color: #F97316;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+}
+
+/* Aspect square for Instagram grid */
+.aspect-square { aspect-ratio: 1 / 1; }

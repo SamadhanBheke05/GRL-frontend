@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Transport Services in Chakan MIDC. Local transport, industrial goods movement, contract logistics. Fast and reliable.">
+    <meta name="keywords" content="industrial transport Pune, truck services Pune, professional transport contractor Chakan MIDC">
+    <title>Our Services | Ghanshyam Roadlines Pune</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/tailwind.css">
+    
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRACKINGID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TRACKINGID');
+      
+      // Basic event tracking function for CTAs
+      function trackEvent(eventName, category, label) {
+          gtag('event', eventName, {
+              'event_category': category,
+              'event_label': label
+          });
+          // Also log server-side for internal AnalyticsEvents table
+          fetch('/api/analytics', {
+              method: 'POST',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({
+                  event_name: eventName + ': ' + label,
+                  event_source: category,
+                  url: window.location.pathname
+              })
+          }).catch(() => {});
+      }
+    </script>
+</head>
+<body class="antialiased font-sans flex flex-col min-h-screen bg-surface">
+
+    <!-- Header Navigation -->
+    <header id="site-header" class="bg-primary text-white sticky top-0 z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 lg:h-20">
+            <a href="index.html" class="flex items-center gap-3 shrink-0">
+                <i class="fas fa-truck-moving text-accent text-2xl lg:text-3xl"></i>
+                <div>
+                    <span class="block text-base lg:text-xl font-extrabold uppercase tracking-tight leading-tight">Ghanshyam Roadlines</span>
+                    <span class="hidden lg:block text-xs text-blue-200 font-medium">Transport Contractor · Chakan MIDC, Pune</span>
+                </div>
+            </a>
+            <nav class="hidden lg:flex items-center gap-1 font-semibold text-sm">
+                <a href="index.html" class="px-3 py-2 rounded-lg hover:bg-blue-800 hover:text-accent transition ">Home</a>
+                <a href="about.html" class="px-3 py-2 rounded-lg hover:bg-blue-800 hover:text-accent transition ">About</a>
+                <a href="services.html" class="px-3 py-2 rounded-lg hover:bg-blue-800 hover:text-accent transition text-accent">Services</a>
+                <a href="industries.html" class="px-3 py-2 rounded-lg hover:bg-blue-800 hover:text-accent transition ">Industries</a>
+                <a href="attach-truck.html" class="px-3 py-2 rounded-lg hover:bg-blue-800 hover:text-accent transition ">Attach Truck</a>
+                <a href="contact.html" class="px-3 py-2 rounded-lg hover:bg-blue-800 hover:text-accent transition ">Contact</a>
+            </nav>
+            <div class="hidden lg:flex items-center gap-2 shrink-0">
+                <a href="tel:+918898778177" onclick="trackEvent('conversion','CTA','Call Click')" class="flex items-center gap-2 bg-accent hover:bg-orange-600 text-white font-bold py-2.5 px-5 rounded-lg transition text-sm shadow-md"><i class="fas fa-phone-alt"></i> +91 8898778177</a>
+                <a href="https://wa.me/918898778177?text=Hello,%20I%20need%20transport%20service%20in%20Chakan%20MIDC" target="_blank" onclick="trackEvent('conversion','CTA','WhatsApp Click')" class="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-5 rounded-lg transition text-sm shadow-md"><i class="fab fa-whatsapp text-base"></i> WhatsApp</a>
+            </div>
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 rounded-lg hover:bg-blue-800 transition focus:outline-none" aria-label="Toggle Menu">
+                <i class="fas fa-bars text-xl" id="menu-icon"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="lg:hidden hidden pb-4 border-t border-blue-800 mt-1 pt-3">
+            <nav class="flex flex-col gap-1 mb-4">
+                <a href="index.html" class="py-2.5 px-4 rounded-lg hover:bg-blue-800 font-semibold ">Home</a>
+                <a href="about.html" class="py-2.5 px-4 rounded-lg hover:bg-blue-800 font-semibold ">About</a>
+                <a href="services.html" class="py-2.5 px-4 rounded-lg hover:bg-blue-800 font-semibold text-accent">Services</a>
+                <a href="industries.html" class="py-2.5 px-4 rounded-lg hover:bg-blue-800 font-semibold ">Industries Served</a>
+                <a href="attach-truck.html" class="py-2.5 px-4 rounded-lg hover:bg-blue-800 font-semibold ">Attach Your Truck</a>
+                <a href="contact.html" class="py-2.5 px-4 rounded-lg hover:bg-blue-800 font-semibold ">Contact Us</a>
+            </nav>
+            <div class="flex gap-3 px-4">
+                <a href="tel:+918898778177" onclick="trackEvent('conversion','CTA','Call Click')" class="flex-1 bg-accent hover:bg-orange-600 text-white font-bold py-3 rounded-lg transition flex items-center justify-center gap-2 text-sm"><i class="fas fa-phone-alt"></i> Call Now</a>
+                <a href="https://wa.me/918898778177?text=Hello,%20I%20need%20transport%20service%20in%20Chakan%20MIDC" target="_blank" onclick="trackEvent('conversion','CTA','WhatsApp Click')" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition flex items-center justify-center gap-2 text-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <!-- Global Trust Signals (Section Level) -->
+    <section class="py-2 bg-gray-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center sm:justify-end items-center gap-x-6 gap-y-2 text-xs font-bold text-gray-500 uppercase">
+            <span class="flex items-center gap-1"><i class="fas fa-award text-accent"></i> Est. 2015</span>
+            <span class="flex items-center gap-1"><i class="fas fa-file-contract text-accent"></i> UDYAM-MH-26-0098552</span>
+            <span class="flex items-center gap-1"><i class="fas fa-user-tie text-accent"></i> Mr. Jai Prakash Yadav</span>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="py-16 sm:py-24 bg-primary text-white text-center border-b-4 border-accent relative">
+        <div class="absolute inset-0 z-0">
+            <!-- Raw industrial texture background -->
+            <img src="https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&q=80&w=1920" alt="Industrial Route" class="w-full h-full object-cover opacity-20 filter grayscale">
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4">
+            <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight mb-4 drop-shadow-md">
+                Professional Transport Services in <span class="text-accent">Chakan MIDC</span>
+            </h1>
+        </div>
+    </section>
+
+    <!-- Detailed Services -->
+    <section class="py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="space-y-8">
+                
+                <!-- Service 1 -->
+                <div class="bg-white p-6 sm:p-10 rounded-xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6 md:gap-10 hover:shadow-md transition">
+                    <div class="w-20 h-20 bg-blue-50 text-accent rounded-full flex items-center justify-center text-4xl shrink-0">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-primary mb-3">1. Industrial Transport</h2>
+                        <p class="text-gray-700 font-medium mb-4 text-lg">Heavy-duty transport solutions tailored for factories and manufacturers.</p>
+                        <div class="bg-surface p-4 border-l-4 border-accent rounded-r-lg">
+                            <span class="font-bold text-primary block mb-1">Use Case:</span>
+                            <span class="text-sm text-gray-600">Bulk goods movement, raw materials, heavy machinery, steel, and industrial components.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-6 sm:p-10 rounded-xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6 md:gap-10 hover:shadow-md transition">
+                    <div class="w-20 h-20 bg-blue-50 text-accent rounded-full flex items-center justify-center text-4xl shrink-0">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-primary mb-3">2. Local Transport Services</h2>
+                        <p class="text-gray-700 font-medium mb-4 text-lg">Quick turnaround, short distance point-to-point delivery within Pune/PCMC.</p>
+                        <div class="bg-surface p-4 border-l-4 border-accent rounded-r-lg">
+                            <span class="font-bold text-primary block mb-1">Use Case:</span>
+                            <span class="text-sm text-gray-600">Short distance delivery, daily local distribution, tier-1 to tier-2 supplier drop-offs.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-6 sm:p-10 rounded-xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6 md:gap-10 hover:shadow-md transition">
+                    <div class="w-20 h-20 bg-blue-50 text-accent rounded-full flex items-center justify-center text-4xl shrink-0">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-primary mb-3">3. Contract-Based Transport</h2>
+                        <p class="text-gray-700 font-medium mb-4 text-lg">Guaranteed availability and preferred routing through long-term partnerships.</p>
+                        <div class="bg-surface p-4 border-l-4 border-accent rounded-r-lg">
+                            <span class="font-bold text-primary block mb-1">Use Case:</span>
+                            <span class="text-sm text-gray-600">Regular daily transport for established companies, monthly fleet booking for constant load.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white p-6 sm:p-10 rounded-xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6 md:gap-10 hover:shadow-md transition">
+                    <div class="w-20 h-20 bg-blue-50 text-accent rounded-full flex items-center justify-center text-4xl shrink-0">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-primary mb-3">4. Warehouse & Factory Support</h2>
+                        <p class="text-gray-700 font-medium mb-4 text-lg">Seamless synchronization between your manufacturing floor and our trucks.</p>
+                        <div class="bg-surface p-4 border-l-4 border-accent rounded-r-lg">
+                            <span class="font-bold text-primary block mb-1">Use Case:</span>
+                            <span class="text-sm text-gray-600">Material movement, organized loading/unloading coordination, inbound/outbound logistics.</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Our Services & Industries Served Split -->
+    <section class="py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Why Choose Us -->
+                <div class="bg-primary text-white p-8 sm:p-10 rounded-xl shadow-sm">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-2 border-b border-gray-600 pb-4">
+                        <i class="fas fa-check-circle text-accent"></i> Why Our Services
+                    </h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-truck-moving text-accent text-2xl mt-1"></i>
+                            <div>
+                                <strong class="block text-lg">Reliable Vehicles</strong>
+                                <span class="text-gray-300 text-sm">Well-maintained fleet preventing breakdowns.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-user-shield text-accent text-2xl mt-1"></i>
+                            <div>
+                                <strong class="block text-lg">Experienced Drivers</strong>
+                                <span class="text-gray-300 text-sm">Navigating complex routes safely.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-stopwatch text-accent text-2xl mt-1"></i>
+                            <div>
+                                <strong class="block text-lg">On-Time Delivery</strong>
+                                <span class="text-gray-300 text-sm">Respecting factory deadlines.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-box-open text-accent text-2xl mt-1"></i>
+                            <div>
+                                <strong class="block text-lg">Safe Handling</strong>
+                                <span class="text-gray-300 text-sm">Zero damage policy for industrial goods.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Industries Served -->
+                <div class="bg-white p-8 sm:p-10 rounded-xl shadow-sm border-t-8 border-accent flex flex-col justify-center">
+                    <h3 class="text-2xl font-bold text-primary mb-6 flex items-center gap-2 border-b border-gray-200 pb-4">
+                        <i class="fas fa-cogs text-accent"></i> Industries Served
+                    </h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-surface p-4 rounded text-center border border-gray-100 font-bold text-primary shadow-sm hover:shadow-md transition">
+                            <i class="fas fa-industry text-3xl text-accent mb-2 block"></i> Manufacturing
+                        </div>
+                        <div class="bg-surface p-4 rounded text-center border border-gray-100 font-bold text-primary shadow-sm hover:shadow-md transition">
+                            <i class="fas fa-building text-3xl text-accent mb-2 block"></i> SMEs
+                        </div>
+                        <div class="bg-surface p-4 rounded text-center border border-gray-100 font-bold text-primary shadow-sm hover:shadow-md transition">
+                            <i class="fas fa-boxes text-3xl text-accent mb-2 block"></i> Warehousing
+                        </div>
+                        <div class="bg-surface p-4 rounded text-center border border-gray-100 font-bold text-primary shadow-sm hover:shadow-md transition">
+                            <i class="fas fa-hard-hat text-3xl text-accent mb-2 block"></i> Industrial Plants
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mid Page CTA -->
+    <section class="py-16 bg-accent text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl sm:text-4xl font-extrabold mb-8 drop-shadow-sm uppercase">Transport solution chahiye? Contact now.</h2>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-white text-primary hover:bg-gray-100 font-bold py-4 px-10 rounded-lg shadow-lg border-2 border-transparent transition text-lg flex items-center justify-center gap-2">
+                    <i class="fas fa-envelope"></i> Send Enquiry
+                </a>
+                <a href="tel:+918898778177" class="bg-primary text-white hover:bg-[#082d47] font-bold py-4 px-10 rounded-lg shadow-lg border border-primary transition text-lg flex items-center justify-center gap-2" onclick="trackEvent('conversion', 'CTA', 'Call Click')" >
+                    <i class="fas fa-phone-alt"></i> Call Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-gray-300 py-12 mt-auto border-t-[6px] border-accent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+            <div>
+                <a href="index.html" class="flex items-center gap-3 mb-4"><i class="fas fa-truck-moving text-accent text-2xl"></i><span class="text-white text-lg font-black uppercase tracking-tight">Ghanshyam Roadlines</span></a>
+                <p class="text-sm text-gray-400 italic mb-3">"Serving with trust since 2015"</p>
+                <p class="text-xs text-gray-500">Proprietor: Mr. Jai Prakash Yadav<br>UDYAM-MH-26-0098552</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-5 text-sm uppercase tracking-wider">Quick Links</h4>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="index.html" class="hover:text-accent transition flex items-center gap-2"><i class="fas fa-angle-right text-accent text-xs"></i> Home</a></li>
+                    <li><a href="about.html" class="hover:text-accent transition flex items-center gap-2"><i class="fas fa-angle-right text-accent text-xs"></i> About Us</a></li>
+                    <li><a href="services.html" class="hover:text-accent transition flex items-center gap-2"><i class="fas fa-angle-right text-accent text-xs"></i> Services</a></li>
+                    <li><a href="industries.html" class="hover:text-accent transition flex items-center gap-2"><i class="fas fa-angle-right text-accent text-xs"></i> Industries</a></li>
+                    <li><a href="attach-truck.html" class="hover:text-accent transition flex items-center gap-2"><i class="fas fa-angle-right text-accent text-xs"></i> Attach Your Truck</a></li>
+                    <li><a href="contact.html" class="hover:text-accent transition flex items-center gap-2"><i class="fas fa-angle-right text-accent text-xs"></i> Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-5 text-sm uppercase tracking-wider">Contact</h4>
+                <ul class="space-y-2.5 text-sm">
+                    <li class="flex items-start gap-2"><i class="fas fa-map-marker-alt text-accent mt-0.5 shrink-0"></i><span>Phadke Wasti, Near Mercedes-Benz,<br>Chakan MIDC, Pune 410501</span></li>
+                    <li><a href="tel:+918898778177" onclick="trackEvent('conversion','CTA','Call Click')" class="flex items-center gap-2 hover:text-accent"><i class="fas fa-phone text-accent"></i> +91 8898778177</a></li>
+                    <li><a href="tel:+917219302088" onclick="trackEvent('conversion','CTA','Call Click')" class="flex items-center gap-2 hover:text-accent"><i class="fas fa-phone text-accent"></i> +91 7219302088</a></li>
+                    <li><a href="mailto:ghanshyamroadlines302088@gmail.com" class="flex items-start gap-2 hover:text-accent break-all"><i class="fas fa-envelope text-accent shrink-0 mt-0.5"></i> ghanshyamroadlines302088@gmail.com</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-5 text-sm uppercase tracking-wider">Follow Us</h4>
+                <div class="grid grid-cols-3 gap-3 mb-4">
+                    <a href="https://www.facebook.com/profile.php?id=61565471993665" target="_blank" class="w-12 h-12 bg-blue-800/40 hover:bg-blue-600 text-gray-300 hover:text-white rounded-xl flex items-center justify-center text-xl transition"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/ghanshyamroadlines_pune/" target="_blank" class="w-12 h-12 bg-blue-800/40 hover:bg-pink-600 text-gray-300 hover:text-white rounded-xl flex items-center justify-center text-xl transition"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@Ghanshyamroadlines_pune" target="_blank" class="w-12 h-12 bg-blue-800/40 hover:bg-red-600 text-gray-300 hover:text-white rounded-xl flex items-center justify-center text-xl transition"><i class="fab fa-youtube"></i></a>
+                    <a href="https://x.com/Ghanshyam_pune" target="_blank" class="w-12 h-12 bg-blue-800/40 hover:bg-sky-500 text-gray-300 hover:text-white rounded-xl flex items-center justify-center text-xl transition"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/ghanshyam-roadlines-pune/" target="_blank" class="w-12 h-12 bg-blue-800/40 hover:bg-blue-700 text-gray-300 hover:text-white rounded-xl flex items-center justify-center text-xl transition"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <p class="text-xs text-gray-500">@ghanshyamroadlines_pune</p>
+            </div>
+        </div>
+        <div class="border-t border-blue-900 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-gray-500">
+            <p>&copy; 2026 Ghanshyam Roadlines Pune. All rights reserved.</p>
+            <p>UDYAM-MH-26-0098552 | Proprietor: Mr. Jai Prakash Yadav</p>
+        </div>
+    </div>
+</footer>
+
+        <!-- DESKTOP FLOATING WHATSAPP -->
+    <a href="https://wa.me/918898778177?text=Hello,%20I%20am%20looking%20for%20transport%20contractor" target="_blank" onclick="trackEvent('conversion','CTA','WhatsApp Float')" class="hidden sm:flex fixed bottom-8 right-8 z-50 bg-green-600 hover:bg-green-700 text-white rounded-full w-16 h-16 items-center justify-center shadow-2xl transition transform hover:scale-110 border-4 border-white">
+        <i class="fab fa-whatsapp text-4xl"></i>
+    </a>
+    <!-- STICKY MOBILE CTA BAR -->
+    <div class="sm:hidden fixed bottom-0 left-0 w-full z-50 flex shadow-[0_-4px_10px_rgba(0,0,0,0.15)] bg-white">
+        <a href="tel:+918898778177" onclick="trackEvent('conversion','CTA','Call Click')" class="flex-1 bg-accent text-white py-4 font-bold text-lg flex items-center justify-center gap-2 active:bg-orange-700"><i class="fas fa-phone-alt"></i> Call Now</a>
+        <a href="https://wa.me/918898778177?text=Hello,%20I%20need%20transport%20service%20in%20Chakan%20MIDC" target="_blank" onclick="trackEvent('conversion','CTA','WhatsApp Click')" class="flex-1 bg-green-600 text-white py-4 font-bold text-lg flex items-center justify-center gap-2 active:bg-green-800"><i class="fab fa-whatsapp text-xl"></i> WhatsApp</a>
+    </div>
+    <script>
+    const _btn = document.getElementById('mobile-menu-btn');
+    const _menu = document.getElementById('mobile-menu');
+    const _icon = document.getElementById('menu-icon');
+    if(_btn) _btn.addEventListener('click', () => {
+        _menu.classList.toggle('hidden');
+        _icon.classList.toggle('fa-bars');
+        _icon.classList.toggle('fa-times');
+    });
+    window.addEventListener('scroll', () => {
+        const h = document.getElementById('site-header');
+        if(h) h.classList.toggle('scrolled', window.scrollY > 10);
+    });
+    </script>
+</body>
+</html>

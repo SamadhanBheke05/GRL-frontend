@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Industrial transport services in Pune for factories and manufacturers. Reliable contractor based in Chakan MIDC providing bulk goods haulage.">
+    <meta name="keywords" content="industrial transport Pune, transport contractor in Chakan MIDC, bulk goods transport, factory transport services">
+    <title>Industrial Transport Services Pune | Chakan MIDC Experts</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/tailwind.css">
+    
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRACKINGID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TRACKINGID');
+      
+      // Basic event tracking function for CTAs
+      function trackEvent(eventName, category, label) {
+          gtag('event', eventName, {
+              'event_category': category,
+              'event_label': label
+          });
+          // Also log server-side for internal AnalyticsEvents table
+          fetch('/api/analytics', {
+              method: 'POST',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({
+                  event_name: eventName + ': ' + label,
+                  event_source: category,
+                  url: window.location.pathname
+              })
+          }).catch(() => {});
+      }
+    </script>
+</head>
+<body class="antialiased font-sans flex flex-col min-h-screen bg-surface text-gray-800">
+
+    <!-- Header Navigation -->
+    <header id="site-header" class="bg-primary text-white sticky top-0 z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 lg:h-20">
+            <a href="index.html" class="flex items-center gap-3 shrink-0">
+                <i class="fas fa-truck-moving text-accent text-2xl lg:text-3xl"></i>
+                <div>
+                    <span class="block text-base lg:text-xl font-extrabold uppercase tracking-tight leading-tight">Ghanshyam Roadlines</span>
+                    <span class="hidden lg:block text-xs text-blue-200 font-medium">Transport Contractor · Chakan MIDC, Pune</span>
+                </div>
+            </a>
+            <nav class="hidden lg:flex items-center gap-1 font-semibold text-sm">
+                <a href="index.html" class="px-3 py-2 rounded-lg hover:bg-blue-800 hover:text-accent transition ">Home</a>
+                <a href="about.html" class="px-3 py-2 rounded-lg hover:bg-blue-800 hover:text-accent transition ">About</a>
+                <a href="services.html" class="px-3 py-2 rounded-lg hover:bg-blue-800 hover:text-accent transition text-accent">Services</a>
+                <a href="industries.html" class="px-3 py-2 rounded-lg hover:bg-blue-800 hover:text-accent transition ">Industries</a>
+                <a href="attach-truck.html" class="px-3 py-2 rounded-lg hover:bg-blue-800 hover:text-accent transition ">Attach Truck</a>
+                <a href="contact.html" class="px-3 py-2 rounded-lg hover:bg-blue-800 hover:text-accent transition ">Contact</a>
+            </nav>
+            <div class="hidden lg:flex items-center gap-2 shrink-0">
+                <a href="tel:+918898778177" onclick="trackEvent('conversion','CTA','Call Click')" class="flex items-center gap-2 bg-accent hover:bg-orange-600 text-white font-bold py-2.5 px-5 rounded-lg transition text-sm shadow-md"><i class="fas fa-phone-alt"></i> +91 8898778177</a>
+                <a href="https://wa.me/918898778177?text=Hello,%20I%20need%20transport%20service%20in%20Chakan%20MIDC" target="_blank" onclick="trackEvent('conversion','CTA','WhatsApp Click')" class="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-5 rounded-lg transition text-sm shadow-md"><i class="fab fa-whatsapp text-base"></i> WhatsApp</a>
+            </div>
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 rounded-lg hover:bg-blue-800 transition focus:outline-none" aria-label="Toggle Menu">
+                <i class="fas fa-bars text-xl" id="menu-icon"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="lg:hidden hidden pb-4 border-t border-blue-800 mt-1 pt-3">
+            <nav class="flex flex-col gap-1 mb-4">
+                <a href="index.html" class="py-2.5 px-4 rounded-lg hover:bg-blue-800 font-semibold ">Home</a>
+                <a href="about.html" class="py-2.5 px-4 rounded-lg hover:bg-blue-800 font-semibold ">About</a>
+                <a href="services.html" class="py-2.5 px-4 rounded-lg hover:bg-blue-800 font-semibold text-accent">Services</a>
+                <a href="industries.html" class="py-2.5 px-4 rounded-lg hover:bg-blue-800 font-semibold ">Industries Served</a>
+                <a href="attach-truck.html" class="py-2.5 px-4 rounded-lg hover:bg-blue-800 font-semibold ">Attach Your Truck</a>
+                <a href="contact.html" class="py-2.5 px-4 rounded-lg hover:bg-blue-800 font-semibold ">Contact Us</a>
+            </nav>
+            <div class="flex gap-3 px-4">
+                <a href="tel:+918898778177" onclick="trackEvent('conversion','CTA','Call Click')" class="flex-1 bg-accent hover:bg-orange-600 text-white font-bold py-3 rounded-lg transition flex items-center justify-center gap-2 text-sm"><i class="fas fa-phone-alt"></i> Call Now</a>
+                <a href="https://wa.me/918898778177?text=Hello,%20I%20need%20transport%20service%20in%20Chakan%20MIDC" target="_blank" onclick="trackEvent('conversion','CTA','WhatsApp Click')" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition flex items-center justify-center gap-2 text-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <!-- Trust Ribbon -->
+    <section class="py-2 bg-gray-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center sm:justify-end items-center gap-x-6 gap-y-2 text-xs font-bold text-gray-500 uppercase">
+            <span class="flex items-center gap-1"><i class="fas fa-award text-accent"></i> Est. 2015</span>
+            <span class="flex items-center gap-1"><i class="fas fa-file-contract text-accent"></i> UDYAM-MH-26-0098552</span>
+            <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-accent"></i> Chakan MIDC Logistics Partner</span>
+        </div>
+    </section>
+
+    <!-- Hero Section / Top CTA -->
+    <section class="py-16 bg-primary text-white border-b-4 border-accent relative">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8ed7c663be?auto=format&fit=crop&q=80&w=1920" alt="Industrial Manufacturing Haulage Pune" class="w-full h-full object-cover opacity-20 filter grayscale">
+        </div>
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+            <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight mb-6 drop-shadow-md">
+                Heavy-Duty <span class="text-accent">Industrial Transport Services in Pune</span>
+            </h1>
+            <p class="text-lg sm:text-xl font-medium mb-8 drop-shadow-sm text-gray-200">
+                Bulk hauling and factory logistics built for manufacturers. Scale your supply chain with the true Chakan experts.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="tel:+918898778177" class="bg-accent hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition transform hover:-translate-y-1 text-lg flex items-center justify-center gap-2" onclick="trackEvent('conversion', 'CTA', 'Call Click')" >
+                    <i class="fas fa-phone-alt"></i> Call Now: +91 8898778177
+                </a>
+                <a href="contact.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition transform hover:-translate-y-1 text-lg flex items-center justify-center gap-2 border border-blue-500">
+                    <i class="fas fa-clipboard-list"></i> Request Contract Pricing
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12 bg-white mt-8 rounded-xl shadow-sm border border-gray-100">
+        
+        <!-- Section 1: Industrial Logistics Challenges -->
+        <section>
+            <h2 class="text-3xl font-bold text-primary mb-4 pb-2 border-b-2 border-accent inline-block">The Hidden Cost of Bad Industrial Haulage</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Operating a manufacturing plant in Pune or Chakan MIDC is a high-stakes environment. Machinery parts, steel coils, and wholesale pallets are extremely sensitive to schedule disruptions. The absolute biggest risk most factories face isn't production errors—it’s assigning complex logistics to inexperienced operators who fail to show up, break down halfway, or damage goods through negligence.
+            </p>
+            <p class="text-lg leading-relaxed text-gray-700">
+                Without a dedicated <strong>industrial transport contractor</strong>, your assembly line is constantly at risk. Heavy haulage requires vehicles rated for the exact dead-weight, robust lashing mechanisms, and drivers who don't crack under heavy-load maneuvering. You need an operator like <a href="index.html" class="text-accent font-bold hover:underline">Ghanshyam Roadlines</a>.
+            </p>
+        </section>
+
+        <!-- Dynamic Service List -->
+        <section class="bg-surface p-6 rounded-lg border-l-4 border-primary">
+            <h2 class="text-2xl font-bold text-primary mb-4">Our Bulk Transport Solutions</h2>
+            <ul class="space-y-4 mb-6">
+                <li class="flex items-start gap-3 text-lg">
+                    <i class="fas fa-industry text-accent mt-1 text-2xl"></i>
+                    <div>
+                        <strong class="text-primary block mb-1">Raw Material Sourcing Transit:</strong> 
+                        <span class="text-gray-700 text-base">Moving massive payloads of raw manufacturing inputs from vendors straight to your intake bays. Ensure your production lines never suffer stock-outs. View full <a href="services.html" class="text-primary font-bold underline">Services</a>.</span>
+                    </div>
+                </li>
+                <li class="flex items-start gap-3 text-lg">
+                    <i class="fas fa-pallet text-accent mt-1 text-2xl"></i>
+                    <div>
+                        <strong class="text-primary block mb-1">Finished Goods Distribution:</strong> 
+                        <span class="text-gray-700 text-base">Dispatching high-value fabricated components directly to tier-1 clients across Maharashtra safely.</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Mid-Content CTA -->
+        <section class="text-center py-8 bg-blue-50 rounded-lg border border-blue-100">
+            <h3 class="text-2xl font-bold text-primary mb-3">Bulk Factory Loading Pending?</h3>
+            <p class="mb-6 text-gray-700">Secure high-capacity vehicles ready for heavy industrial lifting.</p>
+            <a href="https://wa.me/918898778177?text=Hello,%20I%20am%20looking%20for%20heavy%20industrial%20transport%20rates" target="_blank" class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg shadow transition" onclick="trackEvent('conversion', 'CTA', 'WhatsApp Click')" >
+                <i class="fab fa-whatsapp text-xl"></i> WhatsApp Dispatch
+            </a>
+        </section>
+
+        <!-- Section 3: Benefits of Long Term Contacts -->
+        <section>
+            <h2 class="text-3xl font-bold text-primary mb-6">Long-Term Logistics Contract Benefits</h2>
+            
+            <p class="text-lg leading-relaxed mb-8">
+                Spot-market hiring is volatile. Price gouging during peak MIDC demand seasons destroys budget forecasts. By signing a localized transport contract with a <a href="transport-contractor-chakan-midc.html" class="text-primary font-bold hover:underline">Chakan MIDC transport contractor</a> like Ghanshyam Roadlines, factories realize absolute stability:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl shrink-0"><i class="fas fa-chart-line"></i></div>
+                    <div>
+                        <h4 class="font-bold text-primary text-lg mb-1">Budget Predictability</h4>
+                        <p class="text-sm text-gray-700">Fixed rate sheets avoiding spot-market inflation spikes.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl shrink-0"><i class="fas fa-truck-loading"></i></div>
+                    <div>
+                        <h4 class="font-bold text-primary text-lg mb-1">Guaranteed Allocation</h4>
+                        <p class="text-sm text-gray-700">Vehicles are reserved for your daily/weekly pipeline directly.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl shrink-0"><i class="fas fa-clipboard-list"></i></div>
+                    <div>
+                        <h4 class="font-bold text-primary text-lg mb-1">Streamlined Billing</h4>
+                        <p class="text-sm text-gray-700">Consolidated monthly UDYAM invoicing reducing your accounting workload.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl shrink-0"><i class="fas fa-handshake"></i></div>
+                    <div>
+                        <h4 class="font-bold text-primary text-lg mb-1">Familiarity with Processes</h4>
+                        <p class="text-sm text-gray-700">Our returning drivers understand your warehouse intake protocols perfectly minimizing idle time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom CTA -->
+        <section class="text-center py-10 mt-10 border-t-2 border-gray-100">
+            <h2 class="text-3xl font-extrabold text-primary mb-4">Partner With a Hard-Working Team</h2>
+            <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">Manufacturing waits for no one. Let the specialists handle the rubber on the road while you focus on production.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="tel:+918898778177" class="bg-primary hover:bg-[#082d47] text-white font-bold py-4 px-10 rounded-lg shadow-lg transition text-lg flex items-center justify-center gap-2" onclick="trackEvent('conversion', 'CTA', 'Call Click')" >
+                    <i class="fas fa-phone-alt"></i> Call +91 8898778177
+                </a>
+                <a href="contact.html" class="bg-gray-800 hover:bg-black text-white font-bold py-4 px-10 rounded-lg shadow-lg transition text-lg flex items-center justify-center gap-2">
+                    <i class="fas fa-envelope"></i> Send Form Enquiry
+                </a>
+            </div>
+            <p class="mt-4 text-sm text-gray-500">Need smaller, flexible vehicles? See our <a href="truck-services-pune.html" class="text-primary font-semibold underline hover:text-accent">general Pune truck operations</a>.</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-gray-300 py-12 mt-auto border-t-[6px] border-accent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+            <div>
+                <a href="index.html" class="flex items-center gap-3 mb-4"><i class="fas fa-truck-moving text-accent text-2xl"></i><span class="text-white text-lg font-black uppercase tracking-tight">Ghanshyam Roadlines</span></a>
+                <p class="text-sm text-gray-400 italic mb-3">"Serving with trust since 2015"</p>
+                <p class="text-xs text-gray-500">Proprietor: Mr. Jai Prakash Yadav<br>UDYAM-MH-26-0098552</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-5 text-sm uppercase tracking-wider">Quick Links</h4>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="index.html" class="hover:text-accent transition flex items-center gap-2"><i class="fas fa-angle-right text-accent text-xs"></i> Home</a></li>
+                    <li><a href="about.html" class="hover:text-accent transition flex items-center gap-2"><i class="fas fa-angle-right text-accent text-xs"></i> About Us</a></li>
+                    <li><a href="services.html" class="hover:text-accent transition flex items-center gap-2"><i class="fas fa-angle-right text-accent text-xs"></i> Services</a></li>
+                    <li><a href="industries.html" class="hover:text-accent transition flex items-center gap-2"><i class="fas fa-angle-right text-accent text-xs"></i> Industries</a></li>
+                    <li><a href="attach-truck.html" class="hover:text-accent transition flex items-center gap-2"><i class="fas fa-angle-right text-accent text-xs"></i> Attach Your Truck</a></li>
+                    <li><a href="contact.html" class="hover:text-accent transition flex items-center gap-2"><i class="fas fa-angle-right text-accent text-xs"></i> Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-5 text-sm uppercase tracking-wider">Contact</h4>
+                <ul class="space-y-2.5 text-sm">
+                    <li class="flex items-start gap-2"><i class="fas fa-map-marker-alt text-accent mt-0.5 shrink-0"></i><span>Phadke Wasti, Near Mercedes-Benz,<br>Chakan MIDC, Pune 410501</span></li>
+                    <li><a href="tel:+918898778177" onclick="trackEvent('conversion','CTA','Call Click')" class="flex items-center gap-2 hover:text-accent"><i class="fas fa-phone text-accent"></i> +91 8898778177</a></li>
+                    <li><a href="tel:+917219302088" onclick="trackEvent('conversion','CTA','Call Click')" class="flex items-center gap-2 hover:text-accent"><i class="fas fa-phone text-accent"></i> +91 7219302088</a></li>
+                    <li><a href="mailto:ghanshyamroadlines302088@gmail.com" class="flex items-start gap-2 hover:text-accent break-all"><i class="fas fa-envelope text-accent shrink-0 mt-0.5"></i> ghanshyamroadlines302088@gmail.com</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-5 text-sm uppercase tracking-wider">Follow Us</h4>
+                <div class="grid grid-cols-3 gap-3 mb-4">
+                    <a href="https://www.facebook.com/profile.php?id=61565471993665" target="_blank" class="w-12 h-12 bg-blue-800/40 hover:bg-blue-600 text-gray-300 hover:text-white rounded-xl flex items-center justify-center text-xl transition"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/ghanshyamroadlines_pune/" target="_blank" class="w-12 h-12 bg-blue-800/40 hover:bg-pink-600 text-gray-300 hover:text-white rounded-xl flex items-center justify-center text-xl transition"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@Ghanshyamroadlines_pune" target="_blank" class="w-12 h-12 bg-blue-800/40 hover:bg-red-600 text-gray-300 hover:text-white rounded-xl flex items-center justify-center text-xl transition"><i class="fab fa-youtube"></i></a>
+                    <a href="https://x.com/Ghanshyam_pune" target="_blank" class="w-12 h-12 bg-blue-800/40 hover:bg-sky-500 text-gray-300 hover:text-white rounded-xl flex items-center justify-center text-xl transition"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/ghanshyam-roadlines-pune/" target="_blank" class="w-12 h-12 bg-blue-800/40 hover:bg-blue-700 text-gray-300 hover:text-white rounded-xl flex items-center justify-center text-xl transition"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <p class="text-xs text-gray-500">@ghanshyamroadlines_pune</p>
+            </div>
+        </div>
+        <div class="border-t border-blue-900 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-gray-500">
+            <p>&copy; 2026 Ghanshyam Roadlines Pune. All rights reserved.</p>
+            <p>UDYAM-MH-26-0098552 | Proprietor: Mr. Jai Prakash Yadav</p>
+        </div>
+    </div>
+</footer>
+
+        <!-- DESKTOP FLOATING WHATSAPP -->
+    <a href="https://wa.me/918898778177?text=Hello,%20I%20am%20looking%20for%20transport%20contractor" target="_blank" onclick="trackEvent('conversion','CTA','WhatsApp Float')" class="hidden sm:flex fixed bottom-8 right-8 z-50 bg-green-600 hover:bg-green-700 text-white rounded-full w-16 h-16 items-center justify-center shadow-2xl transition transform hover:scale-110 border-4 border-white">
+        <i class="fab fa-whatsapp text-4xl"></i>
+    </a>
+    <!-- STICKY MOBILE CTA BAR -->
+    <div class="sm:hidden fixed bottom-0 left-0 w-full z-50 flex shadow-[0_-4px_10px_rgba(0,0,0,0.15)] bg-white">
+        <a href="tel:+918898778177" onclick="trackEvent('conversion','CTA','Call Click')" class="flex-1 bg-accent text-white py-4 font-bold text-lg flex items-center justify-center gap-2 active:bg-orange-700"><i class="fas fa-phone-alt"></i> Call Now</a>
+        <a href="https://wa.me/918898778177?text=Hello,%20I%20need%20transport%20service%20in%20Chakan%20MIDC" target="_blank" onclick="trackEvent('conversion','CTA','WhatsApp Click')" class="flex-1 bg-green-600 text-white py-4 font-bold text-lg flex items-center justify-center gap-2 active:bg-green-800"><i class="fab fa-whatsapp text-xl"></i> WhatsApp</a>
+    </div>
+    <script>
+    const _btn = document.getElementById('mobile-menu-btn');
+    const _menu = document.getElementById('mobile-menu');
+    const _icon = document.getElementById('menu-icon');
+    if(_btn) _btn.addEventListener('click', () => {
+        _menu.classList.toggle('hidden');
+        _icon.classList.toggle('fa-bars');
+        _icon.classList.toggle('fa-times');
+    });
+    window.addEventListener('scroll', () => {
+        const h = document.getElementById('site-header');
+        if(h) h.classList.toggle('scrolled', window.scrollY > 10);
+    });
+    </script>
+</body>
+</html>
