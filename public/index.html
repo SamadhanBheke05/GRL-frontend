@@ -20,7 +20,7 @@
       gtag('config', 'G-TRACKINGID');
       function trackEvent(eventName, category, label) {
           gtag('event', eventName, {'event_category': category, 'event_label': label});
-          fetch('/api/analytics', {method:'POST', headers:{'Content-Type':'application/json'},
+          fetch('https://grl-backend.onrender.com/api/analytics', {method:'POST', headers:{'Content-Type':'application/json'},
               body: JSON.stringify({event_name: eventName+': '+label, event_source: category, url: window.location.pathname})
           }).catch(()=>{});
       }

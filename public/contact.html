@@ -29,7 +29,7 @@
               'event_label': label
           });
           // Also log server-side for internal AnalyticsEvents table
-          fetch('/api/analytics', {
+          fetch('https://grl-backend.onrender.com/api/analytics', {
               method: 'POST',
               headers: {'Content-Type': 'application/json'},
               body: JSON.stringify({
@@ -284,7 +284,7 @@
             
             try {
                 // Ensure endpoint is reachable on same domain
-                const response = await fetch('/api/leads', {
+                const response = await fetch('https://grl-backend.onrender.com/api/leads', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
