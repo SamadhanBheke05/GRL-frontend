@@ -12,7 +12,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="css/tailwind.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        #service-map { height: 450px; width: 100%; z-index: 1; border-radius: 12px; }
+        .map-container { position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .location-list-item.active { background-color: #f3f4f6; border-left: 4px solid #f97316; }
+    </style>
     
 
     <!-- Google Analytics (GA4) -->
@@ -30,7 +37,7 @@
               'event_label': label
           });
           // Also log server-side for internal AnalyticsEvents table
-          fetch('https://grl-backend.onrender.com/api/analytics', {
+          fetch('/api/analytics', {
               method: 'POST',
               headers: {'Content-Type': 'application/json'},
               body: JSON.stringify({
@@ -43,16 +50,18 @@
     </script>
 </head>
 <body class="antialiased font-sans flex flex-col min-h-screen bg-surface">
+<div id="preloader"><div class="loader-spinner"></div></div>
+<div class="page-load-fade flex flex-col min-h-screen">
 
     <!-- Header Navigation -->
     <header id="site-header" class="bg-primary text-white sticky top-0 z-50 shadow-lg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16 lg:h-20">
             <a href="index.html" class="flex items-center gap-3 shrink-0">
-                <i class="fas fa-truck-moving text-accent text-2xl lg:text-3xl"></i>
+                <img src="images/logo.jpg" alt="GRL Logo" class="h-10 lg:h-14 rounded-lg bg-white p-0.5 shadow-sm">
                 <div>
-                    <span class="block text-base lg:text-xl font-extrabold uppercase tracking-tight leading-tight">Ghanshyam Roadlines</span>
-                    <span class="hidden lg:block text-xs text-blue-200 font-medium">Transport Contractor · Chakan MIDC, Pune</span>
+                    <span class="block text-base lg:text-xl font-extrabold uppercase tracking-tight leading-tight">Ghanshyam Roadlines Pune</span>
+                    <span class="hidden lg:block text-xs text-blue-200 font-medium">Fleet Owner · Transport Contractor · Commission Agent</span>
                 </div>
             </a>
             <nav class="hidden lg:flex items-center gap-1 font-semibold text-sm">
@@ -65,7 +74,7 @@
             </nav>
             <div class="hidden lg:flex items-center gap-2 shrink-0">
                 <a href="tel:+918898778177" onclick="trackEvent('conversion','CTA','Call Click')" class="flex items-center gap-2 bg-accent hover:bg-orange-600 text-white font-bold py-2.5 px-5 rounded-lg transition text-sm shadow-md"><i class="fas fa-phone-alt"></i> +91 8898778177</a>
-                <a href="https://wa.me/918898778177?text=Hello,%20I%20need%20transport%20service%20in%20Chakan%20MIDC" target="_blank" onclick="trackEvent('conversion','CTA','WhatsApp Click')" class="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-5 rounded-lg transition text-sm shadow-md"><i class="fab fa-whatsapp text-base"></i> WhatsApp</a>
+                <a href="https://api.whatsapp.com/send?phone=918898778177&text=Hello,%20I%20need%20transport%20service%20in%20Chakan%20MIDC" target="_blank" onclick="trackEvent('conversion','CTA','WhatsApp Click')" class="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-5 rounded-lg transition text-sm shadow-md"><i class="fab fa-whatsapp text-base"></i> WhatsApp</a>
             </div>
             <button id="mobile-menu-btn" class="lg:hidden text-white p-2 rounded-lg hover:bg-blue-800 transition focus:outline-none" aria-label="Toggle Menu">
                 <i class="fas fa-bars text-xl" id="menu-icon"></i>
@@ -82,7 +91,7 @@
             </nav>
             <div class="flex gap-3 px-4">
                 <a href="tel:+918898778177" onclick="trackEvent('conversion','CTA','Call Click')" class="flex-1 bg-accent hover:bg-orange-600 text-white font-bold py-3 rounded-lg transition flex items-center justify-center gap-2 text-sm"><i class="fas fa-phone-alt"></i> Call Now</a>
-                <a href="https://wa.me/918898778177?text=Hello,%20I%20need%20transport%20service%20in%20Chakan%20MIDC" target="_blank" onclick="trackEvent('conversion','CTA','WhatsApp Click')" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition flex items-center justify-center gap-2 text-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://api.whatsapp.com/send?phone=918898778177&text=Hello,%20I%20need%20transport%20service%20in%20Chakan%20MIDC" target="_blank" onclick="trackEvent('conversion','CTA','WhatsApp Click')" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition flex items-center justify-center gap-2 text-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
             </div>
         </div>
     </div>
@@ -98,7 +107,7 @@
     </section>
 
     <!-- Hero Section -->
-    <section class="py-16 sm:py-24 bg-primary text-white text-center border-b-4 border-accent relative">
+    <section class="py-16 sm:py-24 bg-primary text-white text-center border-b-4 border-accent relative reveal">
         <div class="absolute inset-0 z-0">
             <!-- Raw industrial texture background -->
             <img src="https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&q=80&w=1920" alt="Industrial Route" class="w-full h-full object-cover opacity-20 filter grayscale">
@@ -111,7 +120,7 @@
     </section>
 
     <!-- Detailed Services -->
-    <section class="py-12 sm:py-16">
+    <section class="py-12 sm:py-16 reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="space-y-8">
                 
@@ -133,14 +142,14 @@
                 <!-- Service 2 -->
                 <div class="bg-white p-6 sm:p-10 rounded-xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6 md:gap-10 hover:shadow-md transition">
                     <div class="w-20 h-20 bg-blue-50 text-accent rounded-full flex items-center justify-center text-4xl shrink-0">
-                        <i class="fas fa-truck"></i>
+                        <i class="fas fa-truck-moving"></i>
                     </div>
                     <div>
-                        <h2 class="text-2xl font-bold text-primary mb-3">2. Local Transport Services</h2>
-                        <p class="text-gray-700 font-medium mb-4 text-lg">Quick turnaround, short distance point-to-point delivery within Pune/PCMC.</p>
+                        <h2 class="text-2xl font-bold text-primary mb-3">2. Daily Route Services</h2>
+                        <p class="text-gray-700 font-medium mb-4 text-lg">Daily service with Full & Part load across Maharashtra, Mumbai, and Gujarat.</p>
                         <div class="bg-surface p-4 border-l-4 border-accent rounded-r-lg">
-                            <span class="font-bold text-primary block mb-1">Use Case:</span>
-                            <span class="text-sm text-gray-600">Short distance delivery, daily local distribution, tier-1 to tier-2 supplier drop-offs.</span>
+                            <span class="font-bold text-primary block mb-1">Key Routes:</span>
+                            <span class="text-sm text-gray-600">Pune to Mumbai, Pune to Gujarat, and all major industrial hubs in Maharashtra.</span>
                         </div>
                     </div>
                 </div>
@@ -163,14 +172,14 @@
                 <!-- Service 4 -->
                 <div class="bg-white p-6 sm:p-10 rounded-xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6 md:gap-10 hover:shadow-md transition">
                     <div class="w-20 h-20 bg-blue-50 text-accent rounded-full flex items-center justify-center text-4xl shrink-0">
-                        <i class="fas fa-warehouse"></i>
+                        <i class="fas fa-handshake"></i>
                     </div>
                     <div>
-                        <h2 class="text-2xl font-bold text-primary mb-3">4. Warehouse & Factory Support</h2>
-                        <p class="text-gray-700 font-medium mb-4 text-lg">Seamless synchronization between your manufacturing floor and our trucks.</p>
+                        <h2 class="text-2xl font-bold text-primary mb-3">4. Commission Agent & Fleet Owner</h2>
+                        <p class="text-gray-700 font-medium mb-4 text-lg">Providing a wide range of specialized vehicles for every industrial load requirement.</p>
                         <div class="bg-surface p-4 border-l-4 border-accent rounded-r-lg">
-                            <span class="font-bold text-primary block mb-1">Use Case:</span>
-                            <span class="text-sm text-gray-600">Material movement, organized loading/unloading coordination, inbound/outbound logistics.</span>
+                            <span class="font-bold text-primary block mb-1">Available Fleet:</span>
+                            <span class="text-sm text-gray-600">Pickup, Tata 407, Tata 709, Tata 909, Eicher 1110, and 20 ft Canter.</span>
                         </div>
                     </div>
                 </div>
@@ -180,7 +189,7 @@
     </section>
 
     <!-- Why Our Services & Industries Served Split -->
-    <section class="py-12 sm:py-16">
+    <section class="py-12 sm:py-16 reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Why Choose Us -->
@@ -244,6 +253,43 @@
         </div>
     </section>
 
+    <!-- ======= AREAS SERVED SECTION ======= -->
+    <section class="py-16 sm:py-20 bg-white" id="areas-served">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="section-label">Coverage Area</span>
+                <h2 class="text-3xl lg:text-4xl font-black text-primary">Serving Maharashtra & Gujarat</h2>
+                <p class="text-gray-500 mt-2 max-w-2xl mx-auto font-medium">Serving 50+ industrial locations with dedicated fleets.</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-6">
+                <!-- Location List Panel -->
+                <div class="lg:w-1/3 bg-surface rounded-2xl border border-gray-100 overflow-hidden flex flex-col h-[450px]">
+                    <div class="p-4 bg-primary text-white font-bold flex items-center justify-between">
+                        <span>Service Locations</span>
+                        <i class="fas fa-map-marked-alt opacity-50"></i>
+                    </div>
+                    <div class="flex-1 overflow-y-auto custom-scrollbar p-2 space-y-1" id="location-list">
+                        <!-- Categories will be injected here -->
+                    </div>
+                </div>
+
+                <!-- Interactive Map -->
+                <div class="lg:w-2/3">
+                    <div class="map-container">
+                        <div id="service-map"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <p class="text-sm text-gray-500 italic max-w-2xl mx-auto">
+                    We provide transport services across Chakan, Bhosari, Ranjangaon, Kurkumbh, Talegaon, Bhiwandi, Thane, Surat, Vapi, and many more.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Mid Page CTA -->
     <section class="py-16 bg-accent text-white text-center">
         <div class="max-w-4xl mx-auto px-4">
@@ -252,7 +298,7 @@
                 <a href="contact.html" class="bg-white text-primary hover:bg-gray-100 font-bold py-4 px-10 rounded-lg shadow-lg border-2 border-transparent transition text-lg flex items-center justify-center gap-2">
                     <i class="fas fa-envelope"></i> Send Enquiry
                 </a>
-                <a href="tel:+918898778177" class="bg-primary text-white hover:bg-[#082d47] font-bold py-4 px-10 rounded-lg shadow-lg border border-primary transition text-lg flex items-center justify-center gap-2" onclick="trackEvent('conversion', 'CTA', 'Call Click')" >
+                <a href="tel:+918898778177" class="bg-primary text-white hover:bg-[#082d47] font-bold py-4 px-10 rounded-lg shadow-lg border border-primary transition text-lg flex items-center justify-center gap-2 hover-scale" onclick="trackEvent('conversion', 'CTA', 'Call Click')" >
                     <i class="fas fa-phone-alt"></i> Call Us
                 </a>
             </div>
@@ -260,13 +306,13 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-primary text-gray-300 py-12 mt-auto border-t-[6px] border-accent">
+    <footer class="bg-primary text-white py-12 mt-auto border-t-[6px] border-accent">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
             <div>
-                <a href="index.html" class="flex items-center gap-3 mb-4"><i class="fas fa-truck-moving text-accent text-2xl"></i><span class="text-white text-lg font-black uppercase tracking-tight">Ghanshyam Roadlines</span></a>
-                <p class="text-sm text-gray-400 italic mb-3">"Serving with trust since 2015"</p>
-                <p class="text-xs text-gray-500">Proprietor: Mr. Jai Prakash Yadav<br>UDYAM-MH-26-0098552</p>
+                <a href="index.html" class="flex items-center gap-3 mb-4"><img src="images/logo.jpg" alt="GRL Logo" class="h-10 lg:h-12 rounded-lg bg-white p-0.5 shadow-sm"><span class="text-white text-lg font-black uppercase tracking-tight">Ghanshyam Roadlines Pune</span></a>
+                <p class="text-sm text-gray-200 italic mb-3">"Fleet Owner, Transport Contractor & Commission Agent"</p>
+                <p class="text-xs text-gray-300 font-medium">Proprietor: Mr. Jai Prakash Yadav<br>Phadke Wasti, Chakan MIDC, Pune</p>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-5 text-sm uppercase tracking-wider">Quick Links</h4>
@@ -282,10 +328,18 @@
             <div>
                 <h4 class="text-white font-bold mb-5 text-sm uppercase tracking-wider">Contact</h4>
                 <ul class="space-y-2.5 text-sm">
-                    <li class="flex items-start gap-2"><i class="fas fa-map-marker-alt text-accent mt-0.5 shrink-0"></i><span>Phadke Wasti, Near Mercedes-Benz,<br>Chakan MIDC, Pune 410501</span></li>
-                    <li><a href="tel:+918898778177" onclick="trackEvent('conversion','CTA','Call Click')" class="flex items-center gap-2 hover:text-accent"><i class="fas fa-phone text-accent"></i> +91 8898778177</a></li>
-                    <li><a href="tel:+917219302088" onclick="trackEvent('conversion','CTA','Call Click')" class="flex items-center gap-2 hover:text-accent"><i class="fas fa-phone text-accent"></i> +91 7219302088</a></li>
-                    <li><a href="mailto:ghanshyamroadlines302088@gmail.com" class="flex items-start gap-2 hover:text-accent break-all"><i class="fas fa-envelope text-accent shrink-0 mt-0.5"></i> ghanshyamroadlines302088@gmail.com</a></li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-map-marker-alt text-accent mt-1 shrink-0"></i>
+                        <div>
+                            <span class="block text-white">Phadke Wasti, Near Mercedes-Benz,<br>Chakan MIDC, Pune 410501</span>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=18.7321093,73.8343049" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-accent font-bold text-xs mt-1.5 hover:underline">
+                                📍 Get Directions
+                            </a>
+                        </div>
+                    </li>
+                    <li><a href="tel:+918898778177" onclick="trackEvent('conversion','CTA','Call Click')" class="flex items-center gap-2 hover:text-accent transition-colors"><i class="fas fa-phone text-accent"></i> +91 8898778177</a></li>
+                    <li><a href="tel:+917219302088" onclick="trackEvent('conversion','CTA','Call Click')" class="flex items-center gap-2 hover:text-accent transition-colors"><i class="fas fa-phone text-accent"></i> +91 7219302088</a></li>
+                    <li><a href="mailto:ghanshyamroadlines302088@gmail.com" class="flex items-start gap-2 hover:text-accent break-all transition-colors"><i class="fas fa-envelope text-accent shrink-0 mt-0.5"></i> ghanshyamroadlines302088@gmail.com</a></li>
                 </ul>
             </div>
             <div>
@@ -297,17 +351,89 @@
                     <a href="https://x.com/Ghanshyam_pune" target="_blank" class="w-12 h-12 bg-blue-800/40 hover:bg-sky-500 text-gray-300 hover:text-white rounded-xl flex items-center justify-center text-xl transition"><i class="fab fa-twitter"></i></a>
                     <a href="https://www.linkedin.com/in/ghanshyam-roadlines-pune/" target="_blank" class="w-12 h-12 bg-blue-800/40 hover:bg-blue-700 text-gray-300 hover:text-white rounded-xl flex items-center justify-center text-xl transition"><i class="fab fa-linkedin"></i></a>
                 </div>
-                <p class="text-xs text-gray-500">@ghanshyamroadlines_pune</p>
+                <p class="text-xs text-gray-300">@ghanshyamroadlines_pune</p>
             </div>
         </div>
-        <div class="border-t border-blue-900 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-gray-500">
+        <div class="border-t border-blue-900 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-gray-300">
             <p>&copy; 2026 Ghanshyam Roadlines Pune. All rights reserved.</p>
             <p>UDYAM-MH-26-0098552 | Proprietor: Mr. Jai Prakash Yadav</p>
         </div>
     </div>
 </footer>
 
-        <!-- DESKTOP FLOATING WHATSAPP -->
+                <!-- UI & Map Logic Initialization -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+        // Core UI Handlers
+        (function() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if(btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                    if(icon) {
+                        icon.classList.toggle('fa-bars');
+                        icon.classList.toggle('fa-times');
+                    }
+                });
+            }
+            window.addEventListener('scroll', () => {
+                const header = document.getElementById('site-header');
+                if(header) header.classList.toggle('scrolled', window.scrollY > 10);
+            });
+        })();
+
+        // Map Implementation Portfolio
+        (function() {
+            const locData = {
+                "Core Industrial": { color: "#1e3a8a", items: [{ name: "Chakan", coords: [18.7505, 73.8553] }, { name: "Bhosari", coords: [18.6253, 73.8447] }, { name: "Ranjangaon", coords: [18.7845, 74.2415] }, { name: "Kurkumbh", coords: [18.3637, 74.5244] }, { name: "Talegaon", coords: [18.7303, 73.6749] }, { name: "Khalapur", coords: [18.8285, 73.2842] }, { name: "Taloja", coords: [19.0645, 73.1118] }, { name: "Mahad", coords: [18.0811, 73.4147] }, { name: "Shirphata", coords: [19.1614, 73.0242] }] },
+                "Pune Region": { color: "#3b82f6", items: [{ name: "Hinjewadi", coords: [18.5913, 73.7389] }, { name: "Wakad", coords: [18.5987, 73.7707] }, { name: "Moshi", coords: [18.6653, 73.8647] }, { name: "Chikhali", coords: [18.6753, 73.8047] }, { name: "Pirangut", coords: [18.5153, 73.6847] }, { name: "Lonikand", coords: [18.6015, 74.0047] }, { name: "Alandi", coords: [18.6757, 73.8847] }, { name: "Jejuri", coords: [18.2753, 74.1547] }, { name: "Saswad", coords: [18.3353, 74.0347] }, { name: "Baramati", coords: [18.1553, 74.5747] }, { name: "Nira", coords: [18.1053, 74.2147] }, { name: "Shirur", coords: [18.8253, 74.3747] }, { name: "Daund", coords: [18.4653, 74.5847] }] },
+                "Mumbai Hubs": { color: "#f97316", items: [{ name: "Bhiwandi", coords: [19.2953, 73.0647] }, { name: "Thane", coords: [19.2153, 72.9747] }, { name: "Kalyan", coords: [19.2453, 73.1347] }, { name: "Dombivli", coords: [19.2153, 73.0847] }, { name: "Navi Mumbai", coords: [19.0353, 73.0247] }, { name: "Panvel", coords: [18.9853, 73.1147] }] },
+                "Gujarat Belt": { color: "#22c55e", items: [{ name: "Vapi", coords: [20.3713, 72.9106] }, { name: "Valsad", coords: [20.6105, 72.9342] }, { name: "Ankleshwar", coords: [21.6264, 73.0152] }, { name: "Bharuch", coords: [21.7051, 72.9959] }, { name: "Surat", coords: [21.1702, 72.8311] }] },
+                "Other Maharashtra": { color: "#64748b", items: [{ name: "Satara", coords: [17.6805, 73.9915] }, { name: "Karad", coords: [17.2853, 74.1847] }, { name: "Kolhapur", coords: [16.705, 74.2433] }, { name: "Sangli", coords: [16.8524, 74.5815] }, { name: "Ahmednagar", coords: [19.0948, 74.7480] }, { name: "Nashik", coords: [19.9975, 73.7898] }, { name: "Aurangabad", coords: [19.8762, 75.3433] }] }
+            };
+
+            const map = L.map('service-map', { scrollWheelZoom: false }).setView([19.2, 73.8], 7);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+            const listEl = document.getElementById('location-list');
+
+            Object.entries(locData).forEach(([cat, data]) => {
+                const header = document.createElement('div');
+                header.className = 'px-3 py-2 text-[10px] uppercase font-black text-gray-400 mt-2 bg-gray-50';
+                header.textContent = cat;
+                if(listEl) listEl.appendChild(header);
+
+                data.items.forEach(loc => {
+                    const marker = L.circleMarker(loc.coords, { 
+                        radius: 7, 
+                        fillColor: data.color, 
+                        color: "#fff", 
+                        weight: 2, 
+                        fillOpacity: 0.8 
+                    }).addTo(map).bindPopup(`<strong style="color:#1e3a8a">${loc.name}</strong><br><small>Service Active</small>`);
+
+                    const item = document.createElement('button');
+                    item.className = 'location-list-item w-full text-left px-4 py-2 text-sm font-semibold text-primary hover:bg-gray-100 flex items-center gap-2 border-b border-gray-100 transition-all';
+                    item.innerHTML = `<span class="w-2 h-2 rounded-full" style="background:${data.color}"></span><span>${loc.name}</span>`;
+                    
+                    item.onclick = () => {
+                        document.querySelectorAll('.location-list-item').forEach(i => i.classList.remove('active'));
+                        item.classList.add('active');
+                        map.flyTo(loc.coords, 10, { duration: 1.2 });
+                        marker.openPopup();
+                        if(window.innerWidth < 1024) {
+                            const mapContainer = document.getElementById('service-map');
+                            if(mapContainer) mapContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    };
+                    if(listEl) listEl.appendChild(item);
+                });
+            });
+        })();
+    </script>
+    <script src="js/animations.js"></script>
+    <!-- DESKTOP FLOATING WHATSAPP -->
     <a href="https://wa.me/918898778177?text=Hello,%20I%20am%20looking%20for%20transport%20contractor" target="_blank" onclick="trackEvent('conversion','CTA','WhatsApp Float')" class="hidden sm:flex fixed bottom-8 right-8 z-50 bg-green-600 hover:bg-green-700 text-white rounded-full w-16 h-16 items-center justify-center shadow-2xl transition transform hover:scale-110 border-4 border-white">
         <i class="fab fa-whatsapp text-4xl"></i>
     </a>

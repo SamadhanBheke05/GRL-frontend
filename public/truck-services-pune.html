@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="css/tailwind.css">
+    <link rel="stylesheet" href="css/animations.css">
     
 
     <!-- Google Analytics (GA4) -->
@@ -30,7 +31,7 @@
               'event_label': label
           });
           // Also log server-side for internal AnalyticsEvents table
-          fetch('https://grl-backend.onrender.com/api/analytics', {
+          fetch('/api/analytics', {
               method: 'POST',
               headers: {'Content-Type': 'application/json'},
               body: JSON.stringify({
@@ -42,17 +43,19 @@
       }
     </script>
 </head>
-<body class="antialiased font-sans flex flex-col min-h-screen bg-surface text-gray-800">
+<body class="antialiased font-sans flex flex-col min-h-screen bg-surface">
+<div id="preloader"><div class="loader-spinner"></div></div>
+<div class="page-load-fade flex flex-col min-h-screen text-gray-800">
 
     <!-- Header Navigation -->
     <header id="site-header" class="bg-primary text-white sticky top-0 z-50 shadow-lg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16 lg:h-20">
             <a href="index.html" class="flex items-center gap-3 shrink-0">
-                <i class="fas fa-truck-moving text-accent text-2xl lg:text-3xl"></i>
+                <img src="images/logo.jpg" alt="GRL Logo" class="h-10 lg:h-14 rounded-lg bg-white p-0.5 shadow-sm">
                 <div>
-                    <span class="block text-base lg:text-xl font-extrabold uppercase tracking-tight leading-tight">Ghanshyam Roadlines</span>
-                    <span class="hidden lg:block text-xs text-blue-200 font-medium">Transport Contractor · Chakan MIDC, Pune</span>
+                    <span class="block text-base lg:text-xl font-extrabold uppercase tracking-tight leading-tight">Ghanshyam Roadlines Pune</span>
+                    <span class="hidden lg:block text-xs text-blue-200 font-medium">Fleet Owner · Transport Contractor · Commission Agent</span>
                 </div>
             </a>
             <nav class="hidden lg:flex items-center gap-1 font-semibold text-sm">
@@ -65,7 +68,7 @@
             </nav>
             <div class="hidden lg:flex items-center gap-2 shrink-0">
                 <a href="tel:+918898778177" onclick="trackEvent('conversion','CTA','Call Click')" class="flex items-center gap-2 bg-accent hover:bg-orange-600 text-white font-bold py-2.5 px-5 rounded-lg transition text-sm shadow-md"><i class="fas fa-phone-alt"></i> +91 8898778177</a>
-                <a href="https://wa.me/918898778177?text=Hello,%20I%20need%20transport%20service%20in%20Chakan%20MIDC" target="_blank" onclick="trackEvent('conversion','CTA','WhatsApp Click')" class="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-5 rounded-lg transition text-sm shadow-md"><i class="fab fa-whatsapp text-base"></i> WhatsApp</a>
+                <a href="https://api.whatsapp.com/send?phone=918898778177&text=Hello,%20I%20need%20transport%20service%20in%20Chakan%20MIDC" target="_blank" onclick="trackEvent('conversion','CTA','WhatsApp Click')" class="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-5 rounded-lg transition text-sm shadow-md"><i class="fab fa-whatsapp text-base"></i> WhatsApp</a>
             </div>
             <button id="mobile-menu-btn" class="lg:hidden text-white p-2 rounded-lg hover:bg-blue-800 transition focus:outline-none" aria-label="Toggle Menu">
                 <i class="fas fa-bars text-xl" id="menu-icon"></i>
@@ -82,7 +85,7 @@
             </nav>
             <div class="flex gap-3 px-4">
                 <a href="tel:+918898778177" onclick="trackEvent('conversion','CTA','Call Click')" class="flex-1 bg-accent hover:bg-orange-600 text-white font-bold py-3 rounded-lg transition flex items-center justify-center gap-2 text-sm"><i class="fas fa-phone-alt"></i> Call Now</a>
-                <a href="https://wa.me/918898778177?text=Hello,%20I%20need%20transport%20service%20in%20Chakan%20MIDC" target="_blank" onclick="trackEvent('conversion','CTA','WhatsApp Click')" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition flex items-center justify-center gap-2 text-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://api.whatsapp.com/send?phone=918898778177&text=Hello,%20I%20need%20transport%20service%20in%20Chakan%20MIDC" target="_blank" onclick="trackEvent('conversion','CTA','WhatsApp Click')" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition flex items-center justify-center gap-2 text-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
             </div>
         </div>
     </div>
@@ -113,7 +116,7 @@
                 <a href="tel:+918898778177" class="bg-accent hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition transform hover:-translate-y-1 text-lg flex items-center justify-center gap-2" onclick="trackEvent('conversion', 'CTA', 'Call Click')" >
                     <i class="fas fa-phone-alt"></i> Call Now: +91 8898778177
                 </a>
-                <a href="https://wa.me/918898778177?text=Hello,%20I%20need%20truck%20services%20in%20Pune" target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition transform hover:-translate-y-1 text-lg flex items-center justify-center gap-2" onclick="trackEvent('conversion', 'CTA', 'WhatsApp Click')" >
+                <a href="https://api.whatsapp.com/send?phone=918898778177&text=Hello,%20I%20need%20truck%20services%20in%20Pune" target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition transform hover:-translate-y-1 text-lg flex items-center justify-center gap-2" onclick="trackEvent('conversion', 'CTA', 'WhatsApp Click')" >
                     <i class="fab fa-whatsapp"></i> WhatsApp Enquiry
                 </a>
             </div>
@@ -135,27 +138,16 @@
 
         <!-- Dynamic Service List -->
         <section class="bg-surface p-6 rounded-lg border-l-4 border-primary">
-            <h2 class="text-2xl font-bold text-primary mb-4">Types of Truck Services We Deploy</h2>
-            <ul class="space-y-4 mb-6">
-                <li class="flex items-start gap-3 text-lg">
-                    <i class="fas fa-truck-moving text-accent mt-1"></i>
-                    <div>
-                        <strong>Dedicated SME Transport:</strong> Quick turnaround delivery vehicles perfectly scaled for small to medium enterprise distribution.
-                    </div>
-                </li>
-                <li class="flex items-start gap-3 text-lg">
-                    <i class="fas fa-calendar-alt text-accent mt-1"></i>
-                    <div>
-                        <strong>Contract Load Booking:</strong> Monthly fixed agreements to guarantee capacity availability during peak hours without rate surges. Check our detailed <a href="services.html" class="text-primary font-bold underline">Contract Services</a>.
-                    </div>
-                </li>
-                <li class="flex items-start gap-3 text-lg">
-                    <i class="fas fa-boxes text-accent mt-1"></i>
-                    <div>
-                        <strong>Fast Local Distribution:</strong> Running intra-city supply routes efficiently from warehouse to retail endpoint.
-                    </div>
-                </li>
-            </ul>
+            <h2 class="text-2xl font-bold text-primary mb-4">Our Available Fleet</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
+                <div class="bg-white p-3 rounded border border-gray-200 text-center font-bold">Pickup</div>
+                <div class="bg-white p-3 rounded border border-gray-200 text-center font-bold">Tata 407</div>
+                <div class="bg-white p-3 rounded border border-gray-200 text-center font-bold">Tata 709</div>
+                <div class="bg-white p-3 rounded border border-gray-200 text-center font-bold">Tata 909</div>
+                <div class="bg-white p-3 rounded border border-gray-200 text-center font-bold">Eicher 1110</div>
+                <div class="bg-white p-3 rounded border border-gray-200 text-center font-bold">20 ft Canter</div>
+            </div>
+            <p class="text-sm text-gray-600 italic">Daily service with Full & Part load across Maharashtra, Mumbai, and Gujarat.</p>
         </section>
 
         <!-- Mid-Content CTA -->
@@ -210,19 +202,19 @@
                     <i class="fas fa-envelope"></i> Send Form Enquiry
                 </a>
             </div>
-            <p class="mt-4 text-sm text-gray-500">Need heavier capacity? View our <a href="industrial-transport-pune.html" class="text-primary font-semibold underline hover:text-accent">industrial haulage capabilities</a>.</p>
+            <p class="mt-4 text-sm text-gray-300">Need heavier capacity? View our <a href="industrial-transport-pune.html" class="text-primary font-semibold underline hover:text-accent">industrial haulage capabilities</a>.</p>
         </section>
 
     </main>
 
     <!-- Footer -->
-    <footer class="bg-primary text-gray-300 py-12 mt-auto border-t-[6px] border-accent">
+    <footer class="bg-primary text-white py-12 mt-auto border-t-[6px] border-accent">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
             <div>
-                <a href="index.html" class="flex items-center gap-3 mb-4"><i class="fas fa-truck-moving text-accent text-2xl"></i><span class="text-white text-lg font-black uppercase tracking-tight">Ghanshyam Roadlines</span></a>
-                <p class="text-sm text-gray-400 italic mb-3">"Serving with trust since 2015"</p>
-                <p class="text-xs text-gray-500">Proprietor: Mr. Jai Prakash Yadav<br>UDYAM-MH-26-0098552</p>
+                <a href="index.html" class="flex items-center gap-3 mb-4"><img src="images/logo.jpg" alt="GRL Logo" class="h-10 lg:h-12 rounded-lg bg-white p-0.5 shadow-sm"><span class="text-white text-lg font-black uppercase tracking-tight">Ghanshyam Roadlines Pune</span></a>
+                <p class="text-sm text-gray-200 italic mb-3">"Fleet Owner, Transport Contractor & Commission Agent"</p>
+                <p class="text-xs text-gray-300 font-medium">Proprietor: Mr. Jai Prakash Yadav<br>Phadke Wasti, Chakan MIDC, Pune</p>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-5 text-sm uppercase tracking-wider">Quick Links</h4>
@@ -238,10 +230,18 @@
             <div>
                 <h4 class="text-white font-bold mb-5 text-sm uppercase tracking-wider">Contact</h4>
                 <ul class="space-y-2.5 text-sm">
-                    <li class="flex items-start gap-2"><i class="fas fa-map-marker-alt text-accent mt-0.5 shrink-0"></i><span>Phadke Wasti, Near Mercedes-Benz,<br>Chakan MIDC, Pune 410501</span></li>
-                    <li><a href="tel:+918898778177" onclick="trackEvent('conversion','CTA','Call Click')" class="flex items-center gap-2 hover:text-accent"><i class="fas fa-phone text-accent"></i> +91 8898778177</a></li>
-                    <li><a href="tel:+917219302088" onclick="trackEvent('conversion','CTA','Call Click')" class="flex items-center gap-2 hover:text-accent"><i class="fas fa-phone text-accent"></i> +91 7219302088</a></li>
-                    <li><a href="mailto:ghanshyamroadlines302088@gmail.com" class="flex items-start gap-2 hover:text-accent break-all"><i class="fas fa-envelope text-accent shrink-0 mt-0.5"></i> ghanshyamroadlines302088@gmail.com</a></li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-map-marker-alt text-accent mt-1 shrink-0"></i>
+                        <div>
+                            <span class="block text-white">Phadke Wasti, Near Mercedes-Benz,<br>Chakan MIDC, Pune 410501</span>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=18.7321093,73.8343049" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-accent font-bold text-xs mt-1.5 hover:underline">
+                                📍 Get Directions
+                            </a>
+                        </div>
+                    </li>
+                    <li><a href="tel:+918898778177" onclick="trackEvent('conversion','CTA','Call Click')" class="flex items-center gap-2 hover:text-accent transition-colors"><i class="fas fa-phone text-accent"></i> +91 8898778177</a></li>
+                    <li><a href="tel:+917219302088" onclick="trackEvent('conversion','CTA','Call Click')" class="flex items-center gap-2 hover:text-accent transition-colors"><i class="fas fa-phone text-accent"></i> +91 7219302088</a></li>
+                    <li><a href="mailto:ghanshyamroadlines302088@gmail.com" class="flex items-start gap-2 hover:text-accent break-all transition-colors"><i class="fas fa-envelope text-accent shrink-0 mt-0.5"></i> ghanshyamroadlines302088@gmail.com</a></li>
                 </ul>
             </div>
             <div>
@@ -253,17 +253,20 @@
                     <a href="https://x.com/Ghanshyam_pune" target="_blank" class="w-12 h-12 bg-blue-800/40 hover:bg-sky-500 text-gray-300 hover:text-white rounded-xl flex items-center justify-center text-xl transition"><i class="fab fa-twitter"></i></a>
                     <a href="https://www.linkedin.com/in/ghanshyam-roadlines-pune/" target="_blank" class="w-12 h-12 bg-blue-800/40 hover:bg-blue-700 text-gray-300 hover:text-white rounded-xl flex items-center justify-center text-xl transition"><i class="fab fa-linkedin"></i></a>
                 </div>
-                <p class="text-xs text-gray-500">@ghanshyamroadlines_pune</p>
+                <p class="text-xs text-gray-300">@ghanshyamroadlines_pune</p>
             </div>
         </div>
-        <div class="border-t border-blue-900 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-gray-500">
+        <div class="border-t border-blue-900 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-gray-300">
             <p>&copy; 2026 Ghanshyam Roadlines Pune. All rights reserved.</p>
             <p>UDYAM-MH-26-0098552 | Proprietor: Mr. Jai Prakash Yadav</p>
         </div>
     </div>
 </footer>
 
-        <!-- DESKTOP FLOATING WHATSAPP -->
+                
+</div>
+<script src="js/animations.js"></script>
+    <!-- DESKTOP FLOATING WHATSAPP -->
     <a href="https://wa.me/918898778177?text=Hello,%20I%20am%20looking%20for%20transport%20contractor" target="_blank" onclick="trackEvent('conversion','CTA','WhatsApp Float')" class="hidden sm:flex fixed bottom-8 right-8 z-50 bg-green-600 hover:bg-green-700 text-white rounded-full w-16 h-16 items-center justify-center shadow-2xl transition transform hover:scale-110 border-4 border-white">
         <i class="fab fa-whatsapp text-4xl"></i>
     </a>

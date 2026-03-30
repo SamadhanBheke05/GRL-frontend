@@ -450,7 +450,7 @@ footer {
 }
 
 .footer-col ul li a:hover {
-  color: var(--secondary-color);
+  color: #F97316; /* Orange hover */
 }
 
 .copyright {
@@ -458,6 +458,56 @@ footer {
   padding-top: 20px;
   border-top: 1px solid rgba(255,255,255,0.1);
   font-size: 0.9rem;
+  color: #E5E7EB; /* Secondary light gray */
+}
+
+/* 🔷 FOOTER VISIBILITY FIX 🔷 */
+/* Remove all low-opacity and faded text settings from the blue footer */
+
+footer {
+    background-color: #0d214a !important; /* Rich Dark Blue */
+    color: #FFFFFF !important;
+    opacity: 1 !important;
+}
+
+footer h3, footer h4, footer h2 {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    opacity: 1 !important;
+    margin-bottom: 1.25rem;
+}
+
+footer p, footer li, footer span {
+    color: #FFFFFF !important;
+    opacity: 1 !important;
+}
+
+/* Secondary text elements in footer (links, addresses, copyrights) */
+footer a,
+footer .text-gray-200, 
+footer .text-gray-300, 
+footer .text-gray-400, 
+footer .text-gray-500,
+footer .italic,
+footer .font-medium,
+footer .copyright p {
+    color: #E5E7EB !important; /* Solid Light Gray for Secondary Text */
+    opacity: 1 !important;
+}
+
+/* Hover State - Premium Orange */
+footer a:hover {
+    color: #F97316 !important;
+    text-decoration: none;
+}
+
+/* Ensure Icons are bright */
+footer i {
+    opacity: 1 !important;
+}
+
+footer .text-accent {
+    color: #F97316 !important;
 }
 
 /* Responsive */

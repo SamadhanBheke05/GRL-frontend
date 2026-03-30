@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = Object.fromEntries(formData.entries());
             
             try {
-                const response = await fetch('https://grl-backend.onrender.com/api/leads', {
+                const response = await fetch('/api/leads', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
